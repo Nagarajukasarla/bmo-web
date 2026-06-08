@@ -1,0 +1,130 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  width: 100%;
+  background: rgba(8, 17, 43, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  height: 70px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Logo Brand */
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  .logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--primary-gradient);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(237, 28, 36, 0.25);
+
+    svg.icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .logo-text {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+
+    .logo-brand {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.03em;
+    }
+
+    .logo-tier {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+  }
+}
+
+/* Nav Menu Right Side */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 0.5rem 0.25rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  span {
+    position: relative;
+    z-index: 2;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-cyan);
+    border-radius: 100px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+  }
+
+  &:hover {
+    color: #ffffff;
+
+    &::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+
+  &.active {
+    color: #ffffff;
+
+    &::after {
+      transform: scaleX(1);
+      background: var(--primary-color);
+    }
+  }
+}
